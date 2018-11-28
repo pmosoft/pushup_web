@@ -20,22 +20,16 @@ export class LayoutComponent implements OnInit {
     ngOnInit() {
         //this.router.navigate(['/pushup-view/:blank']);
 
-        this.pushupInVo.usrId = this.usrId;
-        this.pushupService.selectUsrSttlMstrList(this.pushupInVo)
-        .subscribe(result => {
-           if(!result.isSuccess) alert(result.errUsrMsg)
-          else {
-            this.usrSttlVoList = result.usrSttlVoList;
-            if(this.usrSttlVoList.length==0) 
-                 this.router.navigate(['/pushup-regist']);
-            else this.router.navigate(['/pushup-view/:blank']);
-          } 
-        });
-
-
-
-
-
-
+        // this.pushupInVo.usrId = this.usrId;
+        // this.pushupService.selectUsrSttlMstrList(this.pushupInVo)
+        // .subscribe(result => {
+        //    if(!result.isSuccess) alert(result.errUsrMsg)
+        //   else {
+        //     this.usrSttlVoList = result.usrSttlVoList;
+        //     if(this.usrSttlVoList.length==0) 
+        //          this.router.navigate(['/pushup-regist']);
+        //     else this.router.navigate(['/pushup-view/:blank']);
+        //   } 
+        // });
     }
 }

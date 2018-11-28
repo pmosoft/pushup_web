@@ -8,8 +8,8 @@ const routes: Routes = [
         component: LayoutComponent,
         children: [
             { path: '', redirectTo: 'pushup-regist' },
-            { path: 'pushup-regist', loadChildren: './pushup/pushup-regist/pushup-regist.module#PushupRegistModule' },
-            //{ path: 'pushup-goal-regist', loadChildren: './pushup/pushup-goal-regist/pushup-goal-regist.module#PushupGoalRegistModule' },
+            { path: 'pushup-regist'     , loadChildren: './pushup/pushup-regist/pushup-regist.module#PushupRegistModule' },
+            { path: 'pushup-goal-regist', loadChildren: './pushup/pushup-goal-regist/pushup-goal-regist.module#PushupGoalRegistModule' },
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
         ]
     }
