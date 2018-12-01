@@ -1,24 +1,21 @@
 export class Pushup {
-  usrId    : string; // 사용자아이디    
-  usrEmail : string; // 사용자이메일    
-  sttlNm   : string; // 자막명      
-  fsttlNm  : string; // 외국어자막명      
-  msttlNm  : string; // 모국어자막명
-  sttlNum  : number; // 자막순번 
-  sttlCd   : string; // 자막구분(1:외국어,2:모국어) 
-  sttlStm  : string; // 자막시작시각      	 
-  sttlEtm  : string; // 자막종료시각      	 
-  sttlDesc : string; // 자막문장내용	 
-  regDtm   : string; // 등록일시
-  regUsrId : string; // 등록자
-  updDtm   : string; // 변경일시
-  updUsrId : string; // 변경자
 
-  condSttlNum : string = "0";    // 조회조건:자막순번 
-  condSttlCd  : string = "0";    // 조회조건:자막구분 
-  condBookmarkYn : string = "Y"; // 조회조건:북마크여부 
-
-	foreignQryNum : number = 0; // 외국어 북마크번호
-  motherQryNum  : number = 0; // 모국어 북마크번호
+  // 운동이력 
+  usrId       : String; // 유저아이디
+  execDtm     : String; // 운동일시
+  execCd      : String; // 운동코드 -- 01:pushup
+  execDt      : String; // 운동일자
+  execCnt     : number; // 운동횟수
   
+  // 운동목표이력 
+  startDt     : String; // 시작일자
+  endDt       : String; // 종료일자 -- 종료일자 >= 시작일자, 99991231는 하나만 존재하고, 신규 시작일자생성시 이전 종료일자을 반드시 세팅
+  execGoalCnt : number; // 운동목표횟수
+
+  // 공통 
+  regDtm      : String; // 등록일시
+  regUsrId    : String; // 등록자
+  updDtm      : String; // 변경일시
+  updUsrId    : String; // 변경자
+      
 }

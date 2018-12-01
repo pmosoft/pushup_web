@@ -19,35 +19,46 @@ export class PushupService {
 
   constructor(private http: HttpClient
              ,@Inject(DOCUMENT) private document: any) { }
-
-  saveUsrPushups (fd: FormData): Observable<any> {
-    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/saveUsrPushups', fd);
-  }
-  saveSttlNum(pushup: Pushup): Observable<any> {
-    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/saveSttlNum', pushup, httpOptions);
-  }
-
-  /** GET heroes from the server */
-  getHeroes (): Observable<Pushup> {
-    return this.http.get<Pushup>('http://'+this.document.location.hostname+':8082/pushup/test5');
+  /**
+   * [저장] 유저의 운동 수행 이력 정보
+  */
+  insertExeGoalCntHis(pushup: Pushup): Observable<any> {
+    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/insertExeGoalCntHis', pushup, httpOptions);
   }
 
-  selectUsrSttlMstrList(pushup: Pushup): Observable<any> {
-    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/selectUsrSttlMstrList', pushup, httpOptions);
+  /**
+   * [저장] 유저의 운동 목표 횟수 이력 정보
+  */
+  insertExeHis(pushup: Pushup): Observable<any> {
+    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/insertExeHis', pushup, httpOptions);
   }
 
-  selectUsrSttl(pushup: Pushup): Observable<any> {
-    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/selectUsrSttl', pushup, httpOptions);
+  /** 
+   * [조회] 유저의 최근 운동 목표수
+  */
+  selectExeGoalCnt(pushup: Pushup): Observable<any> {
+    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/selectExeGoalCnt', pushup, httpOptions);
   }
- 
-  selectRecentlyPushup(pushup: Pushup): Observable<any> {
-    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/selectUsrRecentlySttl', pushup, httpOptions)
-    ;
+
+  /** 
+   * [조회] 유저의 운동 목표수 이력
+  */
+  selectExeGoalCntHis(pushup: Pushup): Observable<any> {
+    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/selectExeGoalCntHis', pushup, httpOptions);
   }
- 
-  selectUsrSttlDtlList(pushup: Pushup): Observable<any> {
-    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/selectUsrSttlDtlList', pushup, httpOptions)
-    ;
+
+  /** 
+   * [조회] 유저의 당일 운동 정보
+  */
+  selectExeInfo(pushup: Pushup): Observable<any> {
+    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/selectExeInfo', pushup, httpOptions);
   }
- 
+
+  /** 
+   * [조회] 유저의 운동이력 정보
+  */
+  selectExeHis(pushup: Pushup): Observable<any> {
+    return this.http.post<any>('http://'+this.document.location.hostname+':8082/pushup/selectExeHis', pushup, httpOptions);
+  }
+   
 }
