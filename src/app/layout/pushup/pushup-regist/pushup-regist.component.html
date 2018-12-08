@@ -1,7 +1,7 @@
 <div class="card text-center mb-2">
   <div class="card-body">
-    <p>Goal : 100 times(day)</p>
-       Today : total 40 times
+    <p>Goal : {{exerGoalCnt}} times(day)</p>
+       Today : total {{todayExerCnt}} times
   </div>
 </div>
 
@@ -9,34 +9,22 @@
   <div class="card-body">
     <p class="mr-3">Click pushup times.</p>  
     <p>
-      <button type="button" class="btn btn-outline-primary mr-2 btn-sm">10</button> 
-      <button type="button" class="btn btn-outline-primary mr-2 btn-sm">15</button> 
-      <button type="button" class="btn btn-outline-primary mr-2 btn-sm">20</button> 
-      <button type="button" class="btn btn-outline-primary mr-2 btn-sm">25</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(10)">10</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(15)">15</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(20)">20</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(25)">25</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(30)">30</button> 
     </p>  
-      <button type="button" class="btn btn-outline-primary mr-2 btn-sm">30</button> 
-      <button type="button" class="btn btn-outline-primary mr-2 btn-sm">35</button> 
-      <button type="button" class="btn btn-outline-primary mr-2 btn-sm">40</button> 
-      <button type="button" class="btn btn-outline-primary mr-2 btn-sm">45</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(35)">35</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(40)">40</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(45)">45</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(50)">50</button> 
+      <button type="button" class="btn btn-outline-primary mr-2 btn-sm" (click)="onSaveExerHis(55)">55</button> 
   </div>   
 </div> 
 
 <div class="card text-center">
-  <div class="card-body">
-    <div>
-      <ul class="list-group">
-        <li class="list-group-item list-group-item-action" *ngFor="let subtitle of subtitleListVo;"
-            [class.selected]="subtitle === selectedSubtitle"
-            (dblclick)="onSaveSttlNum(subtitle)">
-            [{{subtitle.sttlNum}}] {{subtitle.sttlDesc}}
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-body table-responsive">
+    <div class="card-body table-responsive">
     <table class="table">
       <thead>
         <tr>
@@ -46,22 +34,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-            <td>2018.10.15</td>
-            <td>11:11:11</td>
-            <td>10</td>
-        </tr>
-        <tr>
-          <td>2018.10.15</td>
-          <td>11:11:11</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <td>2018.10.15</td>
-          <td>11:11:11</td>
-          <td>10</td>
+        <tr *ngFor="let pushupOutVo of pushupOutVoList">
+            <td>{{pushupOutVo.exerDt}}</td>
+            <td>{{pushupOutVo.exerTm}}</td>
+            <td>{{pushupOutVo.exerCnt}}</td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>
+</div>    
+

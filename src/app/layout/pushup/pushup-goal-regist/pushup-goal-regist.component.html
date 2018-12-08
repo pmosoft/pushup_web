@@ -4,18 +4,34 @@
     <div class="form-row">
       <div class="col"></div>
       <div class="col-2">
-        <select class="form-control">
-          <option>100</option>
-          <option>200</option>
-          <option selected>300</option>
-          <option>400</option>
-          <option>500</option>
+        <select (change)="onChange($event.target.value)" class="form-control"> 
+            <option *ngFor="let view of exerGoalCntCd" [value]="view.id" >{{view.name}}</option>
         </select>
+  
       </div> 
       <div class="col-1">
-        <button type="button" class="btn ">Save</button>
+        <button type="button" class="btn" (click)="onSaveExerGoalCntHis(push)">Save</button>
       </div>
       <div class="col"></div>
     </div>
   </div>   
 </div> 
+
+<div class="card text-center">
+    <div class="card-body table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+            <th>Date</th>
+            <th>Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pushupOutVo of pushupOutVoList">
+            <td>{{pushupOutVo.startDt}}</td>
+            <td>{{pushupOutVo.exerGoalCnt}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>    
